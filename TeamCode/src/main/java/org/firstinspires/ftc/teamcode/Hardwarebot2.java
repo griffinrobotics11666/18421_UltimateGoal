@@ -73,7 +73,9 @@ public class   Hardwarebot2 {
     //Servos of the claw
     //servos that twist the claw
     public Servo loaderServo = null;
-
+    public Servo continuousServo=null;
+    public Servo servoRotational50;
+    public Servo servoRotational25;
 
     /* local OpMode members. */
     HardwareMap hwMap = null;
