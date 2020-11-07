@@ -1,32 +1,3 @@
-/* Copyright (c) 2017 FIRST. All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted (subject to the limitations in the disclaimer below) provided that
- * the following conditions are met:
- *
- * Redistributions of source code must retain the above copyright notice, this list
- * of conditions and the following disclaimer.
- *
- * Redistributions in binary form must reproduce the above copyright notice, this
- * list of conditions and the following disclaimer in the documentation and/or
- * other materials provided with the distribution.
- *
- * Neither the name of FIRST nor the names of its contributors may be used to endorse or
- * promote products derived from this software without specific prior written permission.
- *
- * NO EXPRESS OR IMPLIED LICENSES TO ANY PARTY'S PATENT RIGHTS ARE GRANTED BY THIS
- * LICENSE. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
- * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
- * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
- * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE
- * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
- * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
- * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
- * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
- * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
- * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
-
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
@@ -52,9 +23,9 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@TeleOp(name="18421 Blaster", group="UltimateGoalBot")
-@Disabled
-public class DriverControl extends OpMode{
+@TeleOp(name="18421 Blaster TWO", group="UltimateGoalBot")
+//@Disabled
+public class driverKontrol extends OpMode{
 
     /* Declare OpMode members. */
     Hardwarebot2 robot       = new Hardwarebot2(); // use the class created to define a Pushbot's hardware
@@ -115,13 +86,13 @@ public class DriverControl extends OpMode{
     @Override
     public void loop() {
 
-        //double y = -gamepad1.left_stick_y; // remember this iz reversed
-        //double x = gamepad1.left_stick_x;
-        //double rx = gamepad1.right_stick_x;
-        //robot.leftFront.setPower(y + x + rx);
-        //robot.rightFront.setPower(y - x - rx);
-        //robot.leftBack.setPower( y - x + rx);
-        //robot.rightBack.setPower( y + x - rx);
+        double y = -gamepad1.left_stick_y; // remember this iz reversed
+        double x = gamepad1.left_stick_x;
+        double rx = gamepad1.right_stick_x;
+        robot.leftFront.setPower(y + x + rx);
+        robot.rightFront.setPower(y - x - rx);
+        robot.leftBack.setPower( y - x + rx);
+        robot.rightBack.setPower( y + x - rx);
 
         // we use rt, rb, lt, lb to run shooter  and feeder motor bois
         if (gamepad1.right_trigger > 0.5) {
@@ -141,7 +112,7 @@ public class DriverControl extends OpMode{
             robot.feeder.setPower(0.0);
         }
 
-                    // we use b 4 da servo
+        // we use b 4 da servo
         if (gamepad1.b) {
             robot.loaderServo.setPosition(loaderServoSetPosition); // 0.4
 
@@ -173,8 +144,8 @@ public class DriverControl extends OpMode{
 
         }
 
-//        left = -gamepad1.left_stick_y;
-//        right = -gamepad1.right_stick_y;
+//       left = -gamepad1.left_stick_y;
+//       right = -gamepad1.right_stick_y;
 //
 //        robot.leftDrive.setPower(left);
 //        robot.rightDrive.setPower(right);
@@ -190,3 +161,7 @@ public class DriverControl extends OpMode{
     public void stop() {
     }
 }
+
+
+
+
